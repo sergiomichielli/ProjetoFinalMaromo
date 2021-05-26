@@ -1,26 +1,23 @@
 package br.edu.fatecmm.ContribuicaoInss.view;
 
 import javax.swing.*;
-import javax.swing.JTable;
 
-public class GerenciarEmpregadoGUI  {
+public class GerenciarEmpregadoGUI extends JFrame  {
 
     private JPanel page;
-    private JFrame frame;
     private JTable table;
 
     public GerenciarEmpregadoGUI() {
-        frame = new JFrame();
-        frame.setTitle("Gerenciar empregados");
+        this.setTitle("Gerenciar empregados");
 
         String[][] data = {
                 { "123", "Artur ", "CSE", "10.000", "1,00" }
         };
         createTable(data);
         JScrollPane sp = new JScrollPane(table);
-        frame.add(sp);
-        frame.setSize(500, 200);
-        frame.setVisible(true);
+        this.add(sp);
+        this.setSize(500, 200);
+        this.setVisible(true);
     }
 
     private void createTable(String[][] data){

@@ -2,9 +2,9 @@ package br.edu.fatecmm.ContribuicaoInss.view;
 
 import javax.swing.*;
 
-public class EmpregadoGUI {
+public class EmpregadoGUI extends JFrame {
 
-    private JPanel CadastrodeEmpregados;
+    private JPanel CadastroDeEmpregados;
     private JTextField labelCodigoEmpregado;
     private JTextField labelNomeEmpregado;
     private JTextField labelSetor;
@@ -21,7 +21,16 @@ public class EmpregadoGUI {
     private JPanel painelEmpregado;
     private JPanel painelButton;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public EmpregadoGUI() {
+        this.setTitle("Cadastro de Empregados");
+        this.setSize(500, 200);
+
+        this.add(labelCodigoEmpregado);
+
+        this.setContentPane(CadastroDeEmpregados);
+
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
     }
+
 }
