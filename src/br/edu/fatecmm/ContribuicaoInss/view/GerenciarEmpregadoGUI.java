@@ -2,29 +2,30 @@ package br.edu.fatecmm.ContribuicaoInss.view;
 
 import javax.swing.*;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 
-public class GerenciarEmpregadoGUI extends JFrame {
-    private JPanel panel1;
-    private JTable table1;
+public class GerenciarEmpregadoGUI  {
 
-    private void createUIComponents() {
-        Dimension frameDimension = new Dimension(400, 400);
+    private JPanel page;
+    private JFrame frame;
+    private JTable table;
 
-        JFrame tela = new JFrame();
-        tela.setContentPane(new JPanel());
-        tela.setTitle("Gerenciar Empregados");
-        tela.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        tela.setVisible(true);
+    public GerenciarEmpregadoGUI() {
+        frame = new JFrame();
+        frame.setTitle("Gerenciar empregados");
 
-         createTable();
-        // TODO: place custom component creation code here
+        String[][] data = {
+                { "123", "Artur ", "CSE", "10.000", "1,00" }
+        };
+        createTable(data);
+        JScrollPane sp = new JScrollPane(table);
+        frame.add(sp);
+        frame.setSize(500, 200);
+        frame.setVisible(true);
     }
 
-
-    private void createTable(){
-        table1.setModel(new DefaultTableModel(null, new String[] {"Código", "Nome", "Setor", "Salário", "Recolhimento" }));
-        this.add(table1);
+    private void createTable(String[][] data){
+        String[] columnNames = { "Código", "Nome", "Setor", "Salário", "Recolhimento" };
+        table = new JTable(data, columnNames);
+        table.setBounds(30, 40, 200, 300);
     }
 }
