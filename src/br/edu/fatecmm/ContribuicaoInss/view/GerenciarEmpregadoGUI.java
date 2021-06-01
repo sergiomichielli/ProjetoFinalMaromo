@@ -1,23 +1,26 @@
 package br.edu.fatecmm.ContribuicaoInss.view;
 
+import br.edu.fatecmm.ContribuicaoInss.models.Empregado;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class GerenciarEmpregadoGUI extends JFrame  {
 
     private JPanel page;
     private JTable table;
+    private static ArrayList <Empregado> listaEmpregado;
 
-    public GerenciarEmpregadoGUI() {
+    public GerenciarEmpregadoGUI(ArrayList <Empregado> listaEmpregado) {
         this.setTitle("Gerenciar empregados");
 
-        String[][] data = {
-                { "123", "Artur ", "CSE", "10.000", "1,00" }
-        };
+        listaEmpregado.toString(data);
+
+
         createTable(data);
         JScrollPane sp = new JScrollPane(table);
         this.add(sp);
         this.setSize(500, 200);
-        this.setVisible(true);
     }
 
     private void createTable(String[][] data){

@@ -1,31 +1,62 @@
 package br.edu.fatecmm.ContribuicaoInss.view;
 
+import br.edu.fatecmm.ContribuicaoInss.models.Empregado;
+import br.edu.fatecmm.ContribuicaoInss.models.GerenciarEmpregado;
+
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class EmpregadoGUI extends JFrame {
 
+
     private JPanel CadastroDeEmpregados;
-    private JTextField labelCodigoEmpregado;
-    private JTextField labelNomeEmpregado;
-    private JTextField labelSetor;
-    private JTextField labelSalarioBruto;
-    private JButton buttoncalcular;
-    private JButton buttonapresentar;
-    private JButton buttoncadastrar;
-    private JLabel textCodigoEmpregado;
-    private JLabel textNomeEmpregado;
-    private JLabel textSetor;
-    private JLabel textsalario;
+    private JTextField textCodigoEmpregado;
+    private JTextField textlNomeEmpregado;
+    private JTextField textSetor;
+    private JTextField textSalarioBruto;
+    private JButton buttonCalcular;
+    private JButton buttonApresentar;
+    private JButton buttonCadastrar;
+    private JLabel labelCodigoEmpregado;
+    private JLabel labelNomeEmpregado;
+    private JLabel labelSetor;
+    private JLabel labelSalarioBruto;
     private JLabel labelRecolhimento;
     private JLabel labelValorCalculado;
     private JPanel painelEmpregado;
     private JPanel painelButton;
+    private Empregado e = new Empregado();
+    private GerenciarEmpregado ge = new GerenciarEmpregado();
 
     public EmpregadoGUI() {
+
+        buttonCalcular.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                e.setCodigoEmpregado(Integer.parseInt(textCodigoEmpregado.getText()));
+                e.setNomeEmpregado(textlNomeEmpregado.getText());
+                e.setSetor(textSetor.getText());
+                e.setSalarioBruto(Double.parseDouble(textSalarioBruto.getText()));
+                ge.adicionarEmpregado(e);
+            }
+        });
+
+        buttonApresentar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+            GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI();
+            gerenciarEmpregadoGUI.setVisible(true);
+            }
+        });
+
+
+
+
         this.setTitle("Cadastro de Empregados");
         this.setSize(500, 200);
 
-        this.add(labelCodigoEmpregado);
+        this.add(textCodigoEmpregado);
 
         this.setContentPane(CadastroDeEmpregados);
 
