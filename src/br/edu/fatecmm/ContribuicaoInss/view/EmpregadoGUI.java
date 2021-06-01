@@ -45,7 +45,8 @@ public class EmpregadoGUI extends JFrame {
         buttonApresentar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent event) {
-            GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI();
+            GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI(ge.listarEmpregados());
+
             gerenciarEmpregadoGUI.setVisible(true);
             }
         });
