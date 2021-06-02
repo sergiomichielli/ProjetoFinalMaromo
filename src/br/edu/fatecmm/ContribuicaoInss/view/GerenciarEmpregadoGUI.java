@@ -10,7 +10,7 @@ public class GerenciarEmpregadoGUI extends JFrame  {
 
     private JPanel page;
     private JTable table;
-    private static ArrayList <Empregado> listaEmpregado;
+    private ArrayList <Empregado> listaEmpregado;
 
     public GerenciarEmpregadoGUI(ArrayList <Empregado> listaEmpregado) {
         this.setTitle("Gerenciar empregados");

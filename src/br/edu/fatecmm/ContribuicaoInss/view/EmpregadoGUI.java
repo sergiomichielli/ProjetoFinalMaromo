@@ -23,22 +23,27 @@ public class EmpregadoGUI extends JFrame {
     private JLabel labelSetor;
     private JLabel labelSalarioBruto;
     private JLabel labelRecolhimento;
-    private JLabel labelValorCalculado;
+    private JLabel labelRecInss;
     private JPanel painelEmpregado;
     private JPanel painelButton;
-    private Empregado e = new Empregado();
     private GerenciarEmpregado ge = new GerenciarEmpregado();
 
     public EmpregadoGUI() {
 
-        buttonCalcular.addMouseListener(new MouseAdapter() {
+        buttonCadastrar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent event) {
+                Empregado e = new Empregado();
                 e.setCodigoEmpregado(Integer.parseInt(textCodigoEmpregado.getText()));
                 e.setNomeEmpregado(textlNomeEmpregado.getText());
                 e.setSetor(textSetor.getText());
                 e.setSalarioBruto(Double.parseDouble(textSalarioBruto.getText()));
                 ge.adicionarEmpregado(e);
+
+                textCodigoEmpregado.setText("");
+                textlNomeEmpregado.setText("");
+                textSetor.setText("");
+                textSalarioBruto.setText("");
             }
         });
 
@@ -46,21 +51,28 @@ public class EmpregadoGUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent event) {
             GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI(ge.listarEmpregados());
-
             gerenciarEmpregadoGUI.setVisible(true);
             }
         });
 
+        buttonCalcular.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                Empregado e = new Empregado();
+                e.setCodigoEmpregado(Integer.parseInt(textCodigoEmpregado.getText()));
+                e.setNomeEmpregado(textlNomeEmpregado.getText());
+                e.setSetor(textSetor.getText());
+                e.setSalarioBruto(Double.parseDouble(textSalarioBruto.getText()));
 
-
+                double valorInss = ge.calcularInss(e);
+                e.setRecInss(valorInss);
+                labelRecInss.setText("R$ " + String.valueOf(valorInss));
+            }
+        });
 
         this.setTitle("Cadastro de Empregados");
         this.setSize(500, 200);
-
-        this.add(textCodigoEmpregado);
-
         this.setContentPane(CadastroDeEmpregados);
-
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
     }
