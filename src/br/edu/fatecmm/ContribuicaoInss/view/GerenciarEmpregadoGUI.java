@@ -1,6 +1,7 @@
 package br.edu.fatecmm.ContribuicaoInss.view;
 
 import br.edu.fatecmm.ContribuicaoInss.models.Empregado;
+import br.edu.fatecmm.ContribuicaoInss.models.Utils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +11,6 @@ public class GerenciarEmpregadoGUI extends JFrame {
 
     private JPanel page;
     private JTable table;
-//    private ArrayList <Empregado> listaEmpregado;
 
     public GerenciarEmpregadoGUI(ArrayList<Empregado> listaEmpregado) {
         this.setTitle("Gerenciar empregados");
@@ -35,8 +35,8 @@ public class GerenciarEmpregadoGUI extends JFrame {
             table.setValueAt(empregado.getCodigoEmpregado(), linha, 0);
             table.setValueAt(empregado.getNomeEmpregado(), linha, 1);
             table.setValueAt(empregado.getSetor(), linha, 2);
-            table.setValueAt(empregado.getSalarioBruto(), linha, 3);
-            table.setValueAt(empregado.getRecInss(), linha, 4);
+            table.setValueAt(Utils.formatarValorDoubleParaString(empregado.getSalarioBruto()), linha, 3);
+            table.setValueAt(Utils.formatarValorDoubleParaString(empregado.getRecInss()), linha, 4);
         }
     }
 }
