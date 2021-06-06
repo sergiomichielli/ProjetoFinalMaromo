@@ -6,13 +6,13 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class GerenciarEmpregadoGUI extends JFrame  {
+public class GerenciarEmpregadoGUI extends JFrame {
 
     private JPanel page;
     private JTable table;
-    private ArrayList <Empregado> listaEmpregado;
+//    private ArrayList <Empregado> listaEmpregado;
 
-    public GerenciarEmpregadoGUI(ArrayList <Empregado> listaEmpregado) {
+    public GerenciarEmpregadoGUI(ArrayList<Empregado> listaEmpregado) {
         this.setTitle("Gerenciar empregados");
 
         createTable(listaEmpregado);
@@ -21,16 +21,13 @@ public class GerenciarEmpregadoGUI extends JFrame  {
         this.setSize(500, 200);
     }
 
-    private void createTable(ArrayList<Empregado> listaEmpregado){
-        String[] columnNames = { "Código", "Nome", "Setor", "Salário", "Recolhimento" };
-      //  table = new JTable(columnNames);
-       // table.setBounds(30, 40, 200, 300);
+    private void createTable(ArrayList<Empregado> listaEmpregado) {
+        String[] columnNames = {"Código", "Nome", "Setor", "Salário", "Recolhimento"};
 
         DefaultTableModel tTabela = (DefaultTableModel) table.getModel();
         tTabela.setNumRows(0);
         tTabela.setColumnIdentifiers(columnNames);
-        for (int linha = 0; linha < listaEmpregado.size(); linha++)
-        {
+        for (int linha = 0; linha < listaEmpregado.size(); linha++) {
             Empregado empregado = listaEmpregado.get(linha);
 
             tTabela.addRow(new Object[]{1});

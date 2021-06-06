@@ -38,6 +38,7 @@ public class EmpregadoGUI extends JFrame {
                 e.setNomeEmpregado(textlNomeEmpregado.getText());
                 e.setSetor(textSetor.getText());
                 e.setSalarioBruto(Double.parseDouble(textSalarioBruto.getText()));
+                e.setRecInss(Double.parseDouble(labelRecInss.getText().substring(3)));
                 ge.adicionarEmpregado(e);
 
                 textCodigoEmpregado.setText("");
@@ -65,7 +66,6 @@ public class EmpregadoGUI extends JFrame {
                 e.setSalarioBruto(Double.parseDouble(textSalarioBruto.getText()));
 
                 double valorInss = ge.calcularInss(e);
-                e.setRecInss(valorInss);
                 labelRecInss.setText("R$ " + String.valueOf(valorInss));
             }
         });
