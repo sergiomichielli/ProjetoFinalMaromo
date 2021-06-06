@@ -45,6 +45,7 @@ public class EmpregadoGUI extends JFrame {
                 textlNomeEmpregado.setText("");
                 textSetor.setText("");
                 textSalarioBruto.setText("");
+                labelRecInss.setText("");
             }
         });
 
@@ -71,7 +72,8 @@ public class EmpregadoGUI extends JFrame {
         });
 
         this.setTitle("Cadastro de Empregados");
-        this.setSize(500, 200);
+        this.setSize(700, 400);
+        this.setLocation((1366/2 - 500/2), (768/2 -450/2));
         this.setContentPane(CadastroDeEmpregados);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
