@@ -58,7 +58,7 @@ public class GerenciarEmpregado {
         if (e.getSalarioBruto() <= parametros.LIMITEFAIXA1) {
             limite = e.getSalarioBruto();
         }
-        resultado = resultado +  limite * parametros.FAIXA1;
+        resultado = resultado + limite * parametros.FAIXA1;
 
         return resultado;
     }
