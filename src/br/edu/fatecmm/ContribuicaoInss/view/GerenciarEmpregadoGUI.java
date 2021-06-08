@@ -42,7 +42,6 @@ public class GerenciarEmpregadoGUI extends JFrame {
             table.setValueAt(Utils.formatarValorDoubleParaString(empregado.getSalarioBruto()), linha, 3);
             table.setValueAt(Utils.formatarValorDoubleParaString(empregado.getRecInss()), linha, 4);
         }
-
     }
 
 }

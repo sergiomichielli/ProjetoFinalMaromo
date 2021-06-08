@@ -12,7 +12,6 @@ import java.awt.event.MouseEvent;
 
 public class EmpregadoGUI extends JFrame {
 
-
     private JPanel CadastroDeEmpregados;
     private JTextField textCodigoEmpregado;
     private JTextField textlNomeEmpregado;
@@ -56,10 +55,11 @@ public class EmpregadoGUI extends JFrame {
                 }
             }
         });
+
         textlNomeEmpregado.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+                if (!(Character.isAlphabetic(c) || (c == KeyEvent.VK_SPACE) ||(c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
                     e.consume();
                 }
             }
@@ -88,20 +88,7 @@ public class EmpregadoGUI extends JFrame {
                 textlNomeEmpregado.setText("");
                 textSetor.setText("");
                 textSalarioBruto.setText("");
-                labelRecInss.setText("");
-            }
-        });
-
-        buttonApresentar.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent event) {
-                if (ge.listarEmpregados().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Nenhum Funcionário cadastrado!");
-                    return;
-                }
-
-                GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI(ge.listarEmpregados());
-                gerenciarEmpregadoGUI.setVisible(true);
+                labelRecInss.setText("R$");
             }
         });
 
@@ -120,6 +107,19 @@ public class EmpregadoGUI extends JFrame {
 
                 double valorInss = ge.calcularInss(e);
                 labelRecInss.setText(Utils.formatarValorDoubleParaString(valorInss));
+            }
+        });
+
+        buttonApresentar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                if (ge.listarEmpregados().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Nenhum Funcionário cadastrado!");
+                    return;
+                }
+
+                GerenciarEmpregadoGUI gerenciarEmpregadoGUI = new GerenciarEmpregadoGUI(ge.listarEmpregados());
+                gerenciarEmpregadoGUI.setVisible(true);
             }
         });
 
